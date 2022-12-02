@@ -1,0 +1,22 @@
+{
+  "name": "product-manager",
+  "version": "1.0.0",
+  "main": "app.js",
+  "type": "module",
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sterroso/backend-product-manager.git"
+  },
+  "scripts": {
+    "test": "jest",
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {},
+  "description": ""
+}
