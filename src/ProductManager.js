@@ -17,29 +17,40 @@ export default class ProductManager {
     this.#init();
   }
 
-  /**
-   
-   * @param {Product} product - El producto que va a agregarse a la colección.
-   */
-  addProduct = (product) => {
-    if(!this.#products.some(p => p.code === product.code)) {
-      product.id = ProductManager.#getNewProductId();
+  
+  get count() {
+    return this.#products.length;
+  }
 
-      this.#products.push(product);
-
-      this.#persist();
-
-      return product.id;
-    }
-
-    throw new Error(`There is already a product with code ${product.code}.`);
+  
+  get nextProductId() {
+    return ProductManager.getLastProductId() + 1;
   }
 
   /**
-    @param {int} productId 
-    @param {Product} updateProduct 
-    @returns 
-    @throws 
+   
+    @param {Product} newProduct - El producto que va a agregarse a la colección.
+   */
+  addProduct = (newProduct) => {
+    if(!this.#products.some(product => product.code === newProduct.code)) {
+      newProduct.id = ProductManager.#getNewProductId();
+
+      this.#products.push(newProduct);
+
+      this.#persist();
+
+     
+      return newProduct.id;
+    }
+
+    throw new Error(`There is already a product with code ${newProduct.code}.`);
+  }
+
+  /**
+   * @param {int} productId 
+   * @param {Product} updateProduct 
+   * @returns 
+   * @throws 
    */
   updateProduct = (productId, updateProduct) => {
     const productFoundIndex = this.#products.findIndex(product => product.id === productId);
@@ -72,7 +83,7 @@ export default class ProductManager {
 
   /**
    * @param {int} productId 
-   * @returns 
+   * @returns
    * @throws 
    */
   deleteProduct = (productId) => {
@@ -92,9 +103,16 @@ export default class ProductManager {
     }
   }
 
+
+  reset = () => {
+    this.#products = [];
+    ProductManager.#lastProductId = 0;
+    this.#persist();
+  }
+
   /**
-   *
-   * @returns  Ahi nos devuelve la colección de productos.
+
+   * @returns 
    */
   getProducts = () => {
     return this.#products;
@@ -121,7 +139,7 @@ export default class ProductManager {
   }
 
   /**
-    @returns 
+   * @returns 
    */
   getPersistPath = () => this.path;
 
@@ -140,7 +158,7 @@ export default class ProductManager {
           product.price,
           product.thumbnail,
           product.code,
-          product.code
+          product.stock
         );
 
         managedProduct.id = product.id;
@@ -159,7 +177,7 @@ export default class ProductManager {
   }
 
   /**
-   * @returns a stringified object ready to be saved.
+   * @returns 
    */
   #getPersistObject = () => {
     const persistObject = {};
@@ -169,27 +187,27 @@ export default class ProductManager {
     return JSON.stringify(persistObject);
   }
 
-
+ 
   #persist = () => {
     writeFileSync(this.getPersistPath(), this.#getPersistObject(), ProductManager.#persistFileOptions);
   }
 
   /**
-    @returns 
+   * @returns ultimo producto id asignado
    */
    static getLastProductId = () => {
     return ProductManager.#lastProductId;
   }
 
   /**
-    @returns a new Product Id.
+   * @returns 
    */
   static #getNewProductId = () => {
     return ++ProductManager.#lastProductId;
   }
 
   /**
-   * @param {int} value
+   * @param {int} value 
    * @returns 
    */
   static #setLastProductId = (value) => {

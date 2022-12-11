@@ -1,6 +1,6 @@
 export default class Product{
   /**
-   * @param {string} title
+   * @param {string} title 
    * @param {string} description 
    * @param {Number} price 
    * @param {string} thumbnail 
