@@ -1,0 +1,146 @@
+{
+  "client": "Thunder Client",
+  "collectionName": "PrimeraEntregaFinal",
+  "dateExported": "2022-12-23T15:26:27.517Z",
+  "version": "1.1",
+  "folders": [
+    {
+      "_id": "e8c3a1a7-c9c1-4d34-9b6e-bee2001ebd57",
+      "name": "ProductsRequests",
+      "containerId": "",
+      "created": "2022-12-18T03:44:41.681Z",
+      "sortNum": 10000
+    },
+    {
+      "_id": "1922f4ee-9639-4345-8b07-49c532d61d3b",
+      "name": "CartsRequests",
+      "containerId": "",
+      "created": "2022-12-18T03:49:22.884Z",
+      "sortNum": 20000
+    }
+  ],
+  "requests": [
+    {
+      "_id": "7e99ba5d-6409-43c7-bc5b-a13e5cb07de3",
+      "colId": "ed31d86a-2cd8-44b2-a568-397a0fd3b887",
+      "containerId": "e8c3a1a7-c9c1-4d34-9b6e-bee2001ebd57",
+      "name": "/api/products/",
+      "url": "localhost:8080/api/products/",
+      "method": "GET",
+      "sortNum": 10000,
+      "created": "2022-12-18T03:43:42.345Z",
+      "modified": "2022-12-18T03:44:43.171Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "a6612d1b-750a-402b-8a27-02cf2d74bb12",
+      "colId": "ed31d86a-2cd8-44b2-a568-397a0fd3b887",
+      "containerId": "e8c3a1a7-c9c1-4d34-9b6e-bee2001ebd57",
+      "name": "/api/products/:pid",
+      "url": "localhost:8080/api/products/13",
+      "method": "GET",
+      "sortNum": 60000,
+      "created": "2022-12-18T03:45:03.047Z",
+      "modified": "2022-12-19T15:48:27.839Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "3e51a13d-ad55-4b6a-a3aa-fc5529bfea5b",
+      "colId": "ed31d86a-2cd8-44b2-a568-397a0fd3b887",
+      "containerId": "e8c3a1a7-c9c1-4d34-9b6e-bee2001ebd57",
+      "name": "/api/products/",
+      "url": "localhost:8080/api/products/",
+      "method": "POST",
+      "sortNum": 70000,
+      "created": "2022-12-18T03:45:42.969Z",
+      "modified": "2022-12-23T03:50:48.140Z",
+      "headers": [],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"title\": \"Producto prueba \",\n  \"description\": \"Este es un producto prueba\",\n  \"price\": 200,\n  \"thumbnail\": \"Sin imagen\",\n  \"stock\": 24,\n  \"code\": \"PRUEBA X1233321\",\n  \"category\": \"PRUEBA\",\n  \"status\": true\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "2d503853-8c3e-4b8a-bd3e-ace4f34770ca",
+      "colId": "ed31d86a-2cd8-44b2-a568-397a0fd3b887",
+      "containerId": "e8c3a1a7-c9c1-4d34-9b6e-bee2001ebd57",
+      "name": "/api/products/:pid",
+      "url": "localhost:8080/api/products/12",
+      "method": "PUT",
+      "sortNum": 80000,
+      "created": "2022-12-18T03:48:21.485Z",
+      "modified": "2022-12-18T03:48:57.349Z",
+      "headers": [],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"title\": \"Producto prueba 12\",\n  \"description\": \"Este es un producto prueba\",\n  \"price\": 200,\n  \"thumbnail\": \"Sin imagen\",\n  \"stock\": 24,\n  \"code\": \"PRUEBA 12\",\n  \"category\": \"PRUEBA\",\n  \"status\": true\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "bdc0e3d5-b232-4331-8d80-2d533e538aac",
+      "colId": "ed31d86a-2cd8-44b2-a568-397a0fd3b887",
+      "containerId": "1922f4ee-9639-4345-8b07-49c532d61d3b",
+      "name": "/api/carts/",
+      "url": "localhost:8080/api/carts",
+      "method": "POST",
+      "sortNum": 90000,
+      "created": "2022-12-18T03:49:52.219Z",
+      "modified": "2022-12-18T03:50:23.490Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "06c624b0-e691-4592-9196-e6caa41f4252",
+      "colId": "ed31d86a-2cd8-44b2-a568-397a0fd3b887",
+      "containerId": "1922f4ee-9639-4345-8b07-49c532d61d3b",
+      "name": "/api/carts/:cid",
+      "url": "localhost:8080/api/carts/2",
+      "method": "GET",
+      "sortNum": 100000,
+      "created": "2022-12-18T03:50:51.483Z",
+      "modified": "2022-12-18T03:53:53.954Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "0adfbde8-d77e-4b4c-b6b2-2de62f80a18f",
+      "colId": "ed31d86a-2cd8-44b2-a568-397a0fd3b887",
+      "containerId": "1922f4ee-9639-4345-8b07-49c532d61d3b",
+      "name": "/api/carts/:cid/product/:pid",
+      "url": "localhost:8080/api/carts/1/product/3",
+      "method": "POST",
+      "sortNum": 110000,
+      "created": "2022-12-18T03:51:49.179Z",
+      "modified": "2022-12-18T03:52:23.182Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "5bc4344d-0e25-4dcf-81ec-a6b7db5aa102",
+      "colId": "ed31d86a-2cd8-44b2-a568-397a0fd3b887",
+      "containerId": "e8c3a1a7-c9c1-4d34-9b6e-bee2001ebd57",
+      "name": "/api/products/:pid",
+      "url": "localhost:8080/api/products/15",
+      "method": "DELETE",
+      "sortNum": 120000,
+      "created": "2022-12-23T03:30:05.994Z",
+      "modified": "2022-12-23T03:51:55.799Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    }
+  ]
+}

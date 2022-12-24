@@ -1,50 +1,48 @@
-export default class Product{
-  /**
-   * @param {string} title 
-   * @param {string} description 
-   * @param {Number} price 
-   * @param {string} thumbnail 
-   * @param {string} code 
-   * @param {Number} stock 
-   */
-   constructor(title, description, price, thumbnail, code, stock) {
-    if ((title ?? 'empty') === 'empty') {
-      throw new Error('Parameter "title" is mandatory. Please provide a value for "title".');
+export default class Product {
+
+    id;
+
+    constructor(title, description, price, thumbnail, stock, code, category, status = true) {
+        Product.validate(title, description, price, thumbnail, stock, code, category, status);
+        this.title = title.trim();
+        this.description = description.trim();
+        this.price = price;
+        this.thumbnail = thumbnail.trim();
+        this.stock = stock;
+        this.code = code.trim().toUpperCase();
+        this.category = category.trim().toUpperCase();
+        this.status = status;
+    }
+   
+    setId(id) {
+        this.id = id;
     }
 
-    if ((description ?? 'empty') === 'empty') {
-      throw new Error('Parameter "description" is mandatory. Please provide a value for "description".');
+    static validate(title, description, price, thumbnail, stock, code, category, status) {
+        if (typeof title !== 'string' || title.trim().length === 0) {
+            throw new Error('Title is not valid');
+        }
+        if (typeof description !== 'string' || description.trim().length === 0) {
+            throw new Error('Description is not valid');
+        }
+        if (typeof price !== 'number' || price <= 0) {
+            throw new Error('Price is not valid');
+        }
+        if (typeof thumbnail !== 'string' || thumbnail.trim().length === 0) {
+            throw new Error('Thumbnail is not valid');
+        }
+        if (typeof stock !== 'number' || stock <= 0) {
+            throw new Error('Stock is not valid');
+        }
+        if (typeof code !== 'string' || code.trim().length === 0) {
+            throw new Error('Code is not valid');
+        }
+        if (typeof category !== 'string' || category.trim().length === 0) {
+            console.log(typeof category)
+            throw new Error('Category is not valid');
+        }
+        if (typeof status !== 'boolean') {
+            throw new Error('Status is not valid');
+        }
     }
-
-    if ((price ?? 'empty') === 'empty') {
-      throw new Error('Parameter "price" is mandatory. Please provide a value for "price".');
-    }
-
-    if (price < 0) {
-      throw new RangeError('Parameter "price" must have a value equal or greater to 0 (zero).');
-    }
-
-    if ((thumbnail ?? 'empty') === 'empty') {
-      throw new Error('Parameter "thumbnail" is mandatory. Please provide a value for "thumbnail".');
-    }
-
-    if ((code ?? 'empty') === 'empty') {
-      throw new Error('Parameter "code" is mandatory. Please provide a value for "code".');
-    }
-
-    if ((stock ?? 'empty') === 'empty') {
-      throw new Error('Parameter "stock" is mandatory. Please provide a value for "stock".');
-    }
-
-    if (stock < 0) {
-      throw new Error('Parameter "stock" must have a value equal or greater to 0 (zero).');
-    }
-
-    this.title = title.trim();
-    this.description = description.trim();
-    this.price = price;
-    this.thumbnail = thumbnail.trim();
-    this.code = code.trim().toUpperCase();
-    this.stock = stock;
-  }
 }
